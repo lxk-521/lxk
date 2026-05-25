@@ -178,14 +178,13 @@ textarea:focus {
 }
 
 .finger-icon {
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
-  stroke: currentColor;
-  stroke-width: 2.25;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  background: #fff;
 }
 
 .small-note {
