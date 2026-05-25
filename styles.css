@@ -1,0 +1,342 @@
+:root {
+  color-scheme: light;
+  --ink: #171717;
+  --muted: #626262;
+  --paper: #fffdfa;
+  --paper-deep: #f7f4ee;
+  --accent: #151515;
+  --accent-soft: #eee7dc;
+  --red: #9c2f24;
+  --line: rgba(23, 23, 23, 0.12);
+  --shadow: 0 24px 70px rgba(38, 32, 22, 0.13);
+  font-family:
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--paper-deep);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper-deep);
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(23, 23, 23, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to bottom, #000, transparent 82%);
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  position: relative;
+  width: min(100%, 1040px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 18px max(28px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  align-content: center;
+}
+
+.oracle-board,
+.result-panel {
+  width: min(100%, 560px);
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 253, 250, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.oracle-board {
+  min-height: 540px;
+  padding: 34px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin: 22px 0 8px;
+  color: var(--ink);
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.lead {
+  margin: 0 0 46px;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.question-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 900;
+}
+
+textarea {
+  width: 100%;
+  min-height: 104px;
+  resize: none;
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  border-radius: 6px;
+  padding: 16px 15px;
+  color: var(--ink);
+  background: #ffffff;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.55;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+textarea::placeholder {
+  color: rgba(94, 107, 102, 0.7);
+}
+
+textarea:focus {
+  border-color: rgba(23, 23, 23, 0.7);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(23, 23, 23, 0.08);
+}
+
+#cast-button {
+  width: 100%;
+  min-height: 58px;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0;
+  box-shadow: 0 14px 34px rgba(23, 23, 23, 0.2);
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
+}
+
+#cast-button:hover {
+  background: #2a2a2a;
+  box-shadow: 0 18px 40px rgba(23, 23, 23, 0.24);
+}
+
+#cast-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 10px 24px rgba(23, 23, 23, 0.18);
+}
+
+#cast-button:focus-visible {
+  outline: 4px solid rgba(156, 47, 36, 0.22);
+  outline-offset: 3px;
+}
+
+.finger-icon {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.small-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.result-panel {
+  padding: 24px;
+}
+
+.result-panel.is-hidden {
+  display: none;
+}
+
+.result-kicker {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.result-head {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-name {
+  margin: 0;
+  color: var(--red);
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.result-keywords {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.six-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.six-grid span {
+  min-height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(23, 23, 23, 0.14);
+  border-radius: 6px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.six-grid span.is-active {
+  border-color: rgba(156, 47, 36, 0.45);
+  color: var(--red);
+  background: rgba(156, 47, 36, 0.08);
+  font-weight: 900;
+}
+
+.reading-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.reading-copy h2 {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.reading-copy p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.76;
+}
+
+.reading-copy p.is-loading {
+  color: var(--muted);
+}
+
+.question-echo {
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (min-width: 900px) {
+  .page-shell {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 22px;
+    align-items: center;
+  }
+
+  .oracle-board,
+  .result-panel {
+    width: 100%;
+  }
+
+  .result-panel.is-hidden {
+    display: block;
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-shell {
+    padding-right: 14px;
+    padding-left: 14px;
+    align-content: start;
+  }
+
+  .oracle-board {
+    min-height: auto;
+    padding: 24px 18px 20px;
+  }
+
+  h1 {
+    margin-top: 20px;
+    font-size: 42px;
+  }
+
+  .lead {
+    margin-bottom: 36px;
+    font-size: 23px;
+  }
+
+  .result-panel {
+    padding: 20px 18px;
+  }
+
+  .result-name {
+    font-size: 38px;
+  }
+}

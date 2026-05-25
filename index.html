@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f4ee" />
+    <meta name="description" content="心有所问，掐指一算。东方灵感占问工具。" />
+    <meta property="og:title" content="掐指一算" />
+    <meta property="og:description" content="心有所问，掐指一算。" />
+    <meta property="og:type" content="website" />
+    <title>掐指一算</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="oracle-board" aria-labelledby="app-title">
+        <p class="product-line">东方灵感占问工具</p>
+
+        <h1 id="app-title">掐指一算</h1>
+        <p class="lead">心有所问，掐指一算</p>
+
+        <label class="question-label" for="question">所问之事</label>
+        <textarea
+          id="question"
+          name="question"
+          maxlength="80"
+          placeholder="可以留空，也可以写下正在犹豫的一件事"
+          autocomplete="off"
+        ></textarea>
+
+        <button id="cast-button" type="button">
+          <svg class="finger-icon" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M12.7 16.5V6.7c0-1.1.9-2 2-2s2 .9 2 2v8.5" />
+            <path d="M16.7 15V8.3c0-1.1.9-2 2-2s2 .9 2 2v8.1" />
+            <path d="M20.7 16.4v-5.1c0-1.1.9-2 2-2s2 .9 2 2v8.6" />
+            <path d="M12.7 13.8l-1.2-1.3c-.8-.8-2-.8-2.8-.1-.7.7-.7 1.8-.1 2.6l5.5 7.2c1.6 2.1 3.8 3.1 6.4 3.1h.4c3.9 0 6.4-2.6 6.4-6.6" />
+            <path d="M8.8 14.7l-2.2 1.2c-1 .5-1.4 1.7-.9 2.7.5 1 1.7 1.4 2.7.9l3.2-1.7" />
+          </svg>
+          <span>开始掐算</span>
+        </button>
+
+        <p class="small-note">基于小六壬起课，仅作民俗文化与自我整理参考</p>
+      </section>
+
+      <section class="result-panel is-hidden" id="result-panel" aria-live="polite">
+        <div class="result-kicker" id="reading-time">起课时刻</div>
+        <div class="result-head">
+          <p class="result-name" id="result-name">大安</p>
+          <p class="result-keywords" id="result-keywords">平稳 / 守正 / 可缓行</p>
+        </div>
+
+        <div class="six-grid" aria-label="小六壬六处">
+          <span data-sign="大安">大安</span>
+          <span data-sign="留连">留连</span>
+          <span data-sign="速喜">速喜</span>
+          <span data-sign="赤口">赤口</span>
+          <span data-sign="小吉">小吉</span>
+          <span data-sign="空亡">空亡</span>
+        </div>
+
+        <div class="reading-copy">
+          <h2>卦象</h2>
+          <p id="summary"></p>
+
+          <h2>分类解读</h2>
+          <p id="situation"></p>
+
+          <h2>可行一步</h2>
+          <p id="action"></p>
+        </div>
+
+        <p class="question-echo" id="question-echo"></p>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
